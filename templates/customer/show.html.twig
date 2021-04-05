@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Customer{% endblock %}
+
+{% block body %}
+
+    <div class="row p-3">
+        <div class="col-md-6">
+            <h1>Customer</h1> 
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{{ path('customer_index') }}" class="btn btn-danger btn-lg">back to list</a>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ customer.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ customer.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ customer.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ customer.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ customer.phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row p-3">
+        <div class="col-md-6">
+            <a href="{{ path('customer_edit', {'id': customer.id}) }}" class="btn btn-primary btn-lg">edit</a>
+        </div>
+        <div class="col-md-6 text-right">
+            {{ include('customer/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+
+{% endblock %}
